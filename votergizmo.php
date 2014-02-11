@@ -1,4 +1,4 @@
-<?php //placeholder
+<?php
 // Basic structure:
 //  1. Get user's access_token
 //  2. Call /posts with a filter that includes whether the user has upvoted/downvoted
