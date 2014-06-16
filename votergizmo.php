@@ -75,7 +75,7 @@ while (1)
 
 		while ($has_good_answer == 0)
 		{
-			echo "vote? (u/d/s/h): ";
+			echo "vote? (u/d/s/l/h): ";
 
 			$handle = fopen ("php://stdin","r");
 			$line = fgets($handle);
@@ -84,7 +84,7 @@ while (1)
 
 			if ($response == "h")
 			{
-				echo "  h: help" . PHP_EOL . "  u: upvote" . PHP_EOL . "  d: downvote" . PHP_EOL . "  s: skip" . PHP_EOL . PHP_EOL;
+				echo "  h: help" . PHP_EOL . "  u: upvote" . PHP_EOL . "  d: downvote" . PHP_EOL . "  l: link" . PHP_EOL . "  s: skip" . PHP_EOL . PHP_EOL;
 			}
 			if ($response == "s")
 			{
@@ -131,6 +131,10 @@ while (1)
 				$result_question = $obj->{"items"}[0];
 				echo $colors->getColoredString("score now at " . $result_question->{"score"} . PHP_EOL, "green");
 				$has_good_answer = 1;
+			}
+			if ($response == 'l')
+			{
+				echo "question link: " . $question->{"link"} . PHP_EOL;
 			}
 		}
 
