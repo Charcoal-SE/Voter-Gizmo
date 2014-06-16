@@ -1,6 +1,6 @@
 <?php
 
-echo "Access token needed (to perform the nuking). Please go to www.erwaysoftware.com/oauth to get an access token." . PHP_EOL . "Enter access token: ";
+echo "Access token needed (to perform the voting). Please go to www.erwaysoftware.com/oauth to get an access token." . PHP_EOL . "Enter access token: ";
 
 $handle = fopen ("php://stdin","r");
 $line = fgets($handle);
