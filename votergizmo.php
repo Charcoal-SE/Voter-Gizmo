@@ -57,9 +57,13 @@ while (1)
 
 	foreach ($questions as $question)
 	{
+		if ($question->{"downvoted"} == 1 || $question->{"upvoted"})
+		{
+			continue;
+		}
 		echo PHP_EOL . "(" . $colors->getColoredString(htmlspecialchars_decode($question->{"score"}, ENT_QUOTES), "grey") . ") " .$colors->getColoredString(htmlspecialchars_decode($question->{"title"}, ENT_QUOTES), "red") . PHP_EOL . PHP_EOL;
 
-		echo $colors->getColoredString(mb_substr(htmlspecialchars_decode($question -> {"body_markdown"}, ENT_QUOTES), 0, 500), "blue") . PHP_EOL . PHP_EOL;
+		echo $colors->getColoredString(mb_substr(htmlspecialchars_decode($question -> {"body_markdown"}, ENT_QUOTES), 0, 5000), "blue") . PHP_EOL . PHP_EOL;
 
 		foreach ($question->{"tags"} as $qtag) {
 			echo $colors->getColoredString("[" . $qtag . "] ", "white", "red");
