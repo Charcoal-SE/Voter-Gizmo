@@ -106,6 +106,7 @@ while (1)
 				$obj = json_decode(gzdecode(file_get_contents($downvoteURL, false, $context)));
 				$result_question = $obj->{"items"}[0];
 				echo $colors->getColoredString("score now at " . $result_question->{"score"} . PHP_EOL, "green");
+				$has_good_answer = 1;
 			}
 			if ($response == "u")
 			{
@@ -125,6 +126,7 @@ while (1)
 				$obj = json_decode(gzdecode(file_get_contents($upvoteURL, false, $context)));
 				$result_question = $obj->{"items"}[0];
 				echo $colors->getColoredString("score now at " . $result_question->{"score"} . PHP_EOL, "green");
+				$has_good_answer = 1;
 			}
 		}
 
