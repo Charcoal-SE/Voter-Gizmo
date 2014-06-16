@@ -92,18 +92,18 @@ while (1)
 			{
 				echo "downvoting question...";
 
-				$editURL = 'https://api.stackexchange.com/2.2/questions/' . $question->{"question_id"} . '/downvote';
-				$editData = array('site' => $site, 'preview' => 'false', 'id' => $question->{"question_id"}, 'key' => "6Z09liTt4uTQU*a4DYOXVQ((", 'access_token' => $access_token, "filter" => "!4(Yr(*8cVk(R9tqx4");
+				$downvoteURL = 'https://api.stackexchange.com/2.2/questions/' . $question->{"question_id"} . '/downvote';
+				$downvoteData = array('site' => $site, 'preview' => 'false', 'id' => $question->{"question_id"}, 'key' => "6Z09liTt4uTQU*a4DYOXVQ((", 'access_token' => $access_token, "filter" => "!4(Yr(*8cVk(R9tqx4");
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded, Accept-Encoding: gzip;q=0, compress;q=0\r\n",
 						'method'  => 'POST',
-						'content' => http_build_query($editData),
+						'content' => http_build_query($downvoteData),
 						'ignore_errors' => true,
 					),
 				);
 				$context = stream_context_create($options);
-				$obj = json_decode(gzdecode(file_get_contents($editURL, false, $context)));
+				$obj = json_decode(gzdecode(file_get_contents($downvoteURL, false, $context)));
 				$result_question = $obj->{"items"}[0];
 				echo $colors->getColoredString("score now at " . $result_question->{"score"} . PHP_EOL, "green");
 			}
